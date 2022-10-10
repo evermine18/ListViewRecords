@@ -11,6 +11,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,6 +30,9 @@ public class MainActivity extends AppCompatActivity {
 
     // ArrayAdapter serà l'intermediari amb la ListView
     ArrayAdapter<Record> adapter;
+    //Array of names
+    String names[] = {"Pep","Tanjir", "Nezuck", "Zenits", "Robert","Felix"};
+    Random rn = new Random();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,8 +74,11 @@ public class MainActivity extends AppCompatActivity {
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                for (int i=0;i<500;i++) {
-                    records.add(new Record(100, "Anonymous"));
+                for (int i=0;i<4;i++) {
+                    int name = rn.nextInt(names.length);
+                    int tries = rn.nextInt(100);
+                    records.add(new Record(tries, names[name]));
+
                 }
                 // notificar l'adapter dels canvis al model
                 adapter.notifyDataSetChanged();
