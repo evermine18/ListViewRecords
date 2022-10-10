@@ -16,12 +16,14 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
     // Model: Record (intents=puntuació, nom)
-    class Record {
+    class Record implements Comparable<Record> {
         public int intents;
         public String nom;
 
@@ -29,6 +31,15 @@ public class MainActivity extends AppCompatActivity {
             intents = _intents;
             nom = _nom;
         }
+        public int compareTo(Record e){
+            if(this.intents==e.intents)
+                return 0;
+            else if(this.intents>e.intents)
+                return 1;
+            else
+                return -1;
+        }
+
     }
     // Model = Taula de records: utilitzem ArrayList
     ArrayList<Record> records;
@@ -87,6 +98,14 @@ public class MainActivity extends AppCompatActivity {
 
                 }
                 // notificar l'adapter dels canvis al model
+                adapter.notifyDataSetChanged();
+            }
+        });
+        Button sort = (Button) findViewById(R.id.sortButton);
+        sort.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Collections.sort(records);
                 adapter.notifyDataSetChanged();
             }
         });
