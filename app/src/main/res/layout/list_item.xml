@@ -1,19 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="3dp"
+        android:layout_height="75dp"
+        android:layout_weight="1"
+        app:srcCompat="@drawable/user" />
 
     <TextView
         android:id="@+id/nom"
-        android:layout_width="198dp"
-        android:layout_height="38dp"
-        android:text="TextView" />
+        android:layout_width="147dp"
+        android:layout_height="76dp"
+        android:fontFamily="@font/pt_sans"
+        android:text="TextView"
+        android:textAlignment="viewStart"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:typeface="normal" />
 
     <TextView
         android:id="@+id/intents"
         android:layout_width="wrap_content"
-        android:layout_height="38dp"
+        android:layout_height="76dp"
         android:layout_weight="1"
-        android:text="TextView" />
+        android:fontFamily="@font/pt_sans"
+        android:text="TextView"
+        android:textColor="#000000"
+        android:textSize="20sp" />
+
+
+
 </LinearLayout>

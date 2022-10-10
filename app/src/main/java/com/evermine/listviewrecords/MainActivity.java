@@ -2,6 +2,11 @@ package com.evermine.listviewrecords;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.RectShape;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
             public View getView(int pos, View convertView, ViewGroup container)
             {
                 // getView ens construeix el layout i hi "pinta" els valors de l'element en la posició pos
+
                 if( convertView==null ) {
                     // inicialitzem l'element la View amb el seu layout
                     convertView = getLayoutInflater().inflate(R.layout.list_item, container, false);
